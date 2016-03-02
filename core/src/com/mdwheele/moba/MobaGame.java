@@ -4,6 +4,11 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 
+/**
+ * This class forms the entry point for our game. It is adapted per-platform
+ * by android, desktop and html projects. It should be limited to dealing with
+ * transitions between high-level screens. It should not have game logic in it.
+ */
 public class MobaGame extends ApplicationAdapter {
 
 	@Override
