@@ -16,7 +16,7 @@ Because I don't know much about how net-code will be implemented currently (sync
 3. Separate server runtime into a server project.
     - Create a Java console main class
     - Make sure you can use KryoNet / share stuff from other packages?
-    - Create compound run configuration
+    - Create compound run configuration (NOPE)
 4. Send a message from one client, see it on another connected client.
     - `> SendChatMessage(PlayerId, string message)`
     - `< ChatMessageWasReceived(PlayerId, string message)`

@@ -12,7 +12,7 @@ public class MobaServer
 
     public static void main(String[] args)
     {
-        Server server = new Server();
+        final Server server = new Server();
         server.start();
 
         // Register all classes...
@@ -31,7 +31,7 @@ public class MobaServer
                     System.out.println("SERVER: Client said: \"" + request.getMessage() + "\"");
 
                     // Respond
-                    connection.sendTCP(new ChatMessage("That's nice. Thanks!"));
+                    server.sendToAllTCP(new ChatMessage("That's nice. Thanks!"));
                 }
             }
         });
