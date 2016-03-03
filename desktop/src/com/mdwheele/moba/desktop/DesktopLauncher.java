@@ -10,8 +10,8 @@ public class DesktopLauncher {
 
 		config.width = 1280;
 		config.height = 720;
-		config.foregroundFPS = 0;
-		config.backgroundFPS = 0;
+		config.foregroundFPS = 200;
+		config.backgroundFPS = 200;
 		config.vSyncEnabled = false;
 
 		new LwjglApplication(new MobaGame(), config);
