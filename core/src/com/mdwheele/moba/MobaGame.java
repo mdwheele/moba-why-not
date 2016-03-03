@@ -22,39 +22,12 @@ import java.io.IOException;
 public class MobaGame extends ApplicationAdapter {
 
 	Bus bus;
-	Server server;
 	Client client;
 
 	@Override
 	public void create () {
 		bus = new Bus(ThreadEnforcer.ANY);
 		bus.register(this);
-
-		// -------------------------------------------------------------
-
-		server = new Server();
-		server.start();
-
-		// Register all classes...
-		server.getKryo().register(ChatMessage.class);
-
-		try {
-			server.bind(54555, 54777);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		server.addListener(new Listener() {
-			public void received (Connection connection, Object object) {
-				if (object instanceof ChatMessage) {
-					ChatMessage request = (ChatMessage)object;
-					request.message = "> " + request.message;
-					bus.post(request);
-
-					connection.sendTCP(new ChatMessage("That's nice. Thanks for saying: " + request.getMessage()));
-				}
-			}
-		});
 
 		// -------------------------------------------------------------
 
@@ -95,7 +68,6 @@ public class MobaGame extends ApplicationAdapter {
 	@Override
 	public void dispose() {
 		client.stop();
-		server.stop();
 	}
 
 	@Subscribe
